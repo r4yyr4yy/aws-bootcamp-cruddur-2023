@@ -2,6 +2,25 @@
 
 ## Required Homework/tasks
 
+Cruddur, a micro blogging platform which is build around the 6 pillars of the AWS Well-Architected tool- operational excellence, security, reliability, performance efficiency, cost optimization, and sustainability with the aim of providing a consistent approach to evaluate architecture and implement scalable designs.
+
+### Cruddur Conceptual Diagram
+
+
+
+![Cruddur Conceptual Diagram](assets/Cruddur_Conceptual_diagram.png)
+
+[*Cruddur Conceptual Diagram*](https://lucid.app/lucidchart/4c3988c6-3997-48a8-8cdc-e2971695a1a0/edit?viewport_loc=127%2C42%2C1707%2C811%2C0_0&invitationId=inv_55ae69f6-ecac-42a1-9ab9-b19753afa5e6)
+
+
+### Cruddur Logical Diagram
+
+![Cruddur Logical Diagram](assets/Cruddur_Logical_diagram.png)
+
+[*Cruddur Logical Diagram*](https://lucid.app/lucidchart/85186717-358f-47f1-a6e7-0bbd53e75782/edit?viewport_loc=71%2C79%2C1707%2C811%2C0_0&invitationId=inv_57254522-3f85-4ad5-9e19-fb975d38be67)
+
+#### Description
+
 ### Installing AWS CLI on Gitpod environment
 
 Gitpod runs on linux x64 so we will use the following commands to download and install AWS CLI on Gitpod
@@ -49,20 +68,6 @@ $ aws sts get-caller-identity
 
 ![IAM user created](assets/Proof_of_AWS_CLI.png)
 
-### Cruddur Conceptual Diagram
-
-![Cruddur Conceptual Diagram](assets/Conceptual_diagram.png)
-
-[*Cruddur Conceptual Diagram*](https://lucid.app/lucidchart/4c3988c6-3997-48a8-8cdc-e2971695a1a0/edit?viewport_loc=127%2C42%2C1707%2C811%2C0_0&invitationId=inv_55ae69f6-ecac-42a1-9ab9-b19753afa5e6)
-
-
-### Cruddur Logical Diagram
-
-![Cruddur Logical Diagram](assets/Cruddur_Logical_diagram.png)
-
-[*Cruddur Logical Diagram*](https://lucid.app/lucidchart/85186717-358f-47f1-a6e7-0bbd53e75782/edit?viewport_loc=71%2C79%2C1707%2C811%2C0_0&invitationId=inv_57254522-3f85-4ad5-9e19-fb975d38be67)
-
-#### Description
 
 ### Creation of Budget
 

@@ -751,7 +751,38 @@ psql -Upostgres --host localhost
 [*amazon dynamodb Tools*](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tools.CLI.html)
 
 
+## Security Considerations
 
+### Top 10 Container best practices for zero day
 
+Container Security is the practice of protecting your applications hosted on compute services like Containers. exapmles of container applications are Single page applications, microservices, APIs, etc.
 
+### Container Security Components
+
+* Docker & Host configuration
+* Securing Images
+* Secret management
+* Application security
+* Data Security
+* Monitoring Containers
+* Compliance Framework
+
+### Security Best Practices
+
+* Keep Host & Docker Updated to latest security patches 
+* Docker daemon & containers should run in non-root user mode 
+* Image Vulnerability Scanning
+* Trusting a private vs public image registry
+* No sensitive Data in Docker files or images 
+* Use secret Management services to share secrets
+* Read only File system and volume for Docker 
+* Seperate databases for long term storage 
+* Use DevSecOps practices while building applications security
+* Ensure all code is tested for vulnerabilities before production use
+
+### Container Security tools
+
+* Snyk
+* AWS Secret Manager
+* Amazon Inspector
 

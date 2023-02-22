@@ -15,7 +15,7 @@ cd ..
 
 ![python_envirnment](assets/python_environ.png)
 
-*Get to the port and unlock port 4567 and click the link and the append /api/activities/home to the url in the browser*
+*Access the port tab, unlock port 4567 and click the link and the append /api/activities/home to the url in the browser*
 
 ![port-4567-backend](assets/port-4567-backend.png)
 
@@ -94,7 +94,7 @@ docker build -t frontend-react-js ./frontend-react-js
 ```
 docker run -p 3000:3000 -d frontend-react-js
 ```
-## Running and managing multiple containers
+## Orchestrating multiple containers
 
 Docker Compose is used to create manage and cleanup multi-container applications by reading and applying rules defined in a docker compose file.
 

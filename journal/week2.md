@@ -6,8 +6,6 @@ We are usig Honeycomb to help quickly make sense of thosand of rows of data in o
 
 Create a new environment and get the API key under the API key tab "xFOH6frzRh7PShOBCC5BxA"
 
-INSERT PIC
-
 #### Set environment variables:
 
 ```
@@ -39,7 +37,7 @@ opentelemetry-instrumentation-flask
 opentelemetry-instrumentation-requests
 ```
 
-![]Ref: https://ui.honeycomb.io/cloudsec/environments/bootcamp/send-data#
+![reference honeycomb](https://ui.honeycomb.io/cloudsec/environments/bootcamp/send-data#)
 
 Now, change directory to backend-flask and install the dependencies
 
@@ -82,10 +80,6 @@ RequestsInstrumentor().instrument()
 Run the docker compose file
 
 NB: Make sure ports 3000 and 4567 are open and click on the link
-
-insert pic (port 3000 -- Frontend)
-
-insert pic (port 4567 --- Backend)
 
  #### Add the code below to the backend-flask in the docker compose file
  

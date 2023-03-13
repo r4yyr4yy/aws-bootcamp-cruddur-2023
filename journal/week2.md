@@ -2,7 +2,7 @@
 
 ### Honeycomb Setup
 
-We are usig Honeycomb to help quickly make sense of thosand of rows of data in our project needed to fully represent the user experience in your complex, unpredictable systems.
+We are using Honeycomb to help quickly make sense of thousand of rows of data in our project needed to fully represent the user experience in your complex, unpredictable systems.
 
 Create a new environment and get the API key under the API key tab "xFOH6frzRh7PShOBCC5BxA"
 

@@ -32,6 +32,7 @@ from aws_xray_sdk.ext.flask.middleware import XRayMiddleware
 provider = TracerProvider()
 processor = BatchSpanProcessor(OTLPSpanExporter())
 provider.add_span_processor(processor)
+
 trace.set_tracer_provider(provider)
 tracer = trace.get_tracer(__name__)
 
@@ -55,6 +56,7 @@ XRayMiddleware(app, xray_recorder)
 
 FlaskInstrumentor().instrument_app(app)
 RequestsInstrumentor().instrument()
+
 frontend = os.getenv('FRONTEND_URL')
 backend = os.getenv('BACKEND_URL')
 origins = [frontend, backend]

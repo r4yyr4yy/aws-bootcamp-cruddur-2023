@@ -4,7 +4,7 @@
 
 ### Creation of User ID pool
 
-[User_pool_ID creation](User_pool_ID.png)
+![User_pool_ID creation](assets/User_pool_ID.png)
 
 ### Install AWS Amplify Library
 
@@ -16,7 +16,7 @@ npm i aws-amplify --save
 
 Verify the installation in the package.js file
 
-[Amplify installation](amplify.png)
+![Amplify installation](assets/amplify.png)
 
 import amplify into App.js 
 

@@ -106,3 +106,134 @@ gp env PRO_CONNECTION_URL="postgresql://postgres:password@[endpoint]:5432/cruddu
 export PRO_CONNECTION_URL="postgresql://postgres:password@[endpoint]:5432/cruddur"
 ```
 
+### Creation of tables
+
+
+```
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+```
+
+```
+DROP TABLE IF EXISTS public.users;
+DROP TABLE IF EXISTS public.activities;
+```
+
+```
+CREATE TABLE public.users (
+  uuid UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  display_name text,
+  handle text
+  cognito_user_id text,
+  created_at TIMESTAMP default current_timestamp NOT NULL
+);
+```
+
+```
+CREATE TABLE public.activities (
+  uuid UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  message text NOT NULL,
+  replies_count integer DEFAULT 0,
+  reposts_count integer DEFAULT 0,
+  likes_count integer DEFAULT 0,
+  reply_to_activity_uuid integer,
+  expires_at TIMESTAMP,
+  created_at TIMESTAMP default current_timestamp NOT NULL
+);
+```
+
+[https://www.postgresql.org/docs/current/sql-createtable.html](https://www.postgresql.org/docs/current/sql-createtable.html)
+
+### Shell Script to Connect to DB
+
+create a folder to keep all the scripts
+
+mkdir /workspace/aws-bootcamp-cruddur-2023/backend-flask/bin
+
+Connection bash script *bin/db-connect*
+
+```
+#! /usr/bin/bash
+
+psql $CONNECTION_URL
+
+```
+Change user permission to make it executable
+
+```
+chmod u+x bin/db-connect
+```
+To execute the script:
+
+```
+./bin/db-connect
+```
+
+### Shell script to drop the database
+
+Drop bash script *bin/db-drop*
+
+```
+#! /usr/bin/bash
+
+NO_DB_CONNECTION_URL=$(sed 's/\/cruddur//g' <<<"$CONNECTION_URL")
+psql $NO_DB_CONNECTION_URL -c "DROP database cruddur;
+```
+
+### Shell script to create the database
+
+Create a *bin/db-create*
+
+```
+#! /usr/bin/bash
+
+NO_DB_CONNECTION_URL=$(sed 's/\/cruddur//g' <<<"$CONNECTION_URL")
+createdb cruddur $NO_DB_CONNECTION_URL
+```
+
+### Shell script to load the schema
+
+Load schema bin/db-schema-load
+
+```
+#! /usr/bin/bash
+
+schema_path="$(realpath .)/db/schema.sql"
+
+echo $schema_path
+
+NO_DB_CONNECTION_URL=$(sed 's/\/cruddur//g' <<<"$CONNECTION_URL")
+psql $NO_DB_CONNECTION_URL cruddur < $schema_path
+
+```
+
+### Shell script to load the seed data
+
+```
+#! /usr/bin/bash
+
+#echo "== db-schema-load"
+
+
+schema_path="$(realpath .)/db/schema.sql"
+
+echo $schema_path
+
+psql $CONNECTION_URL cruddur < $schema_path
+```
+
+### Shell script to setup (reset) everything for our database
+
+```
+#! /usr/bin/bash
+-e # stop if it fails at any point
+
+#echo "==== db-setup"
+
+bin_path="$(realpath .)/bin"
+
+source "$bin_path/db-drop"
+source "$bin_path/db-create"
+source "$bin_path/db-schema-load"
+source "$bin_path/db-seed"
+```
+

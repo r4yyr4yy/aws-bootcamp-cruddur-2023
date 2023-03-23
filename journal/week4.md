@@ -73,7 +73,7 @@ Add UUID Extension to the schema.sql file
 ```
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 ```
-Run the command below to create Extension
+Run the command below to import script
 ```
 psql cruddur < db/schema.sql -h localhost -U postgres
 ```

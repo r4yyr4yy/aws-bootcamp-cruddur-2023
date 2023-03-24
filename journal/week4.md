@@ -122,7 +122,7 @@ DROP TABLE IF EXISTS public.activities;
 CREATE TABLE public.users (
   uuid UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
   display_name text,
-  handle text
+  handle text,
   cognito_user_id text,
   created_at TIMESTAMP default current_timestamp NOT NULL
 );
@@ -131,6 +131,7 @@ CREATE TABLE public.users (
 ```
 CREATE TABLE public.activities (
   uuid UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  user_uuid UUID NOT NULL,
   message text NOT NULL,
   replies_count integer DEFAULT 0,
   reposts_count integer DEFAULT 0,
@@ -140,7 +141,22 @@ CREATE TABLE public.activities (
   created_at TIMESTAMP default current_timestamp NOT NULL
 );
 ```
-
+### Insert content into table
+```
+INSERT INTO public.users (display_name, handle, cognito_user_id)
+VALUES
+  ('Andrew Brown', 'andrewbrown' ,'MOCK'),
+  ('Andrew Bayko', 'bayko' ,'MOCK');
+```
+```
+INSERT INTO public.activities (user_uuid, message, expires_at)
+VALUES
+  (
+    (SELECT uuid from public.users WHERE users.handle = 'andrewbrown' LIMIT 1),
+    'This was imported as seed data!',
+    current_timestamp + interval '10 day'
+  );
+  ```
 [https://www.postgresql.org/docs/current/sql-createtable.html](https://www.postgresql.org/docs/current/sql-createtable.html)
 
 ### Shell Script to Connect to DB
@@ -236,4 +252,3 @@ source "$bin_path/db-create"
 source "$bin_path/db-schema-load"
 source "$bin_path/db-seed"
 ```
-

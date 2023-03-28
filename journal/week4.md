@@ -252,3 +252,28 @@ source "$bin_path/db-create"
 source "$bin_path/db-schema-load"
 source "$bin_path/db-seed"
 ```
+### Install Postgres Client
+
+Add the drivers below in the backend-flask/requirements.txt and install the PostgreSQL driver for python.
+
+```
+psycopg[binary]
+psycopg[pool]
+```
+```
+pip install -r requirements.txt
+```
+
+### Create DB Object and Connection Pool
+
+```
+backen-flask/lib/db.py
+```
+```
+from psycopg_pool import ConnectionPool
+import os
+
+connection_url = os.getenv("CONNECTION_URL")
+pool = ConnectionPool(connection_url)
+
+

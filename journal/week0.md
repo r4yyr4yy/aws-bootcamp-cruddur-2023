@@ -56,7 +56,7 @@ vscode:
 
 Now, to create IAM user, you will use the following commands
 ```
-export AWS_ACCESS_KEY_ID="AKIAV6ESGA3WWDRTRMOF"     # AWS ACCESS KEY ID 
+export AWS_ACCESS_KEY_ID="QWERTYUIOPASDFGGHJJJKKJ"     # AWS ACCESS KEY ID 
 export AWS_SECRET_ACCESS_KEY="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" #AWS SECRET KEY 
 export AWS_DEFAULT_REGION="ca-central-1"           # AWS REGION 
 ```

@@ -66,7 +66,7 @@ $ aws sts get-caller-identity
 
 ```
 
-![IAM user created](assets/Proof_of_AWS_CLI.png)
+![IAM user created](assets/Proof_of_AWS_CLInn.png)
 
 
 ### Creation of Budget
